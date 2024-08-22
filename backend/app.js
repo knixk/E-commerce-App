@@ -11,7 +11,7 @@ app.use(express.json());
 
 // Connecting to database
 connectDatabase();
-
+    
 app.use("/api", productRoutes);
 
 app.listen(process.env.PORT, () => {
