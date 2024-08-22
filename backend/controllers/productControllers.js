@@ -5,7 +5,7 @@ import APIFilters from "../utils/apiFilters.js";
 
 // Get all products   =>  /api/products
 export const getProducts = catchAsyncErrors(async (req, res) => {
-  const apiFilters = new APIFilters(Product, req.query).search();
+  const apiFilters = new APIFilters(Product, req.query).search().filters();
   let products = await apiFilters.query;
   let filteredProductsCount = products.length;
 

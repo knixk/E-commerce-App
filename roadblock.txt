@@ -1,0 +1,1 @@
+you were doing filters, it says query str isn't defined
