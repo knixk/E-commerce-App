@@ -26,6 +26,7 @@ class APIFilters {
     fieldsToRemove.forEach((el) => delete queryCopy[el]);
 
     this.query = this.query.find(queryStr);
+    console.log(this.queryStr);
     return this;
   }
 }

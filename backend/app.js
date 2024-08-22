@@ -26,7 +26,7 @@ app.use(errorMiddleware);
 
 const server = app.listen(process.env.PORT, () => {
   console.log(
-    `Up on port ${process.env.PORT} and ${process.env.NODE_ENV} mode`
+    `Up on port ${process.env.PORT} and in ${process.env.NODE_ENV} mode`
   );
 });
 
