@@ -6,13 +6,15 @@ import { connectDatabase } from "./config/dbConnect.js";
 
 // Import all routes
 import productRoutes from "./routes/products.js";
+import errorMiddleware from "./middlewares/errors.js";
 
 app.use(express.json());
 
 // Connecting to database
 connectDatabase();
-    
-app.use("/api", productRoutes);
+
+app.use("/api", productRoutes); 
+app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {
   console.log(
