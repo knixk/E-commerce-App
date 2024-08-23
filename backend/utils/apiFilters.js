@@ -20,13 +20,11 @@ class APIFilters {
 
   filters() {
     const queryCopy = { ...this.queryStr };
-
     // Fields to remove
     const fieldsToRemove = ["keyword"];
     fieldsToRemove.forEach((el) => delete queryCopy[el]);
-
-    this.query = this.query.find(queryStr);
-    console.log(this.queryStr);
+    console.log(queryCopy);
+    this.query = this.query.find(queryCopy);
     return this;
   }
 }
