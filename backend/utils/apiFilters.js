@@ -23,8 +23,14 @@ class APIFilters {
     // Fields to remove
     const fieldsToRemove = ["keyword"];
     fieldsToRemove.forEach((el) => delete queryCopy[el]);
-    console.log(queryCopy);
-    this.query = this.query.find(queryCopy);
+
+    // Advance filter for price, ratings etc
+    let queryStr = JSON.stringify(queryCopy);
+    console.log(queryStr);
+    queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, (match) => `$${match}`);
+    console.log(queryStr);
+
+    this.query = this.query.find(JSON.parse(queryStr));
     return this;
   }
 }
