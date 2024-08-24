@@ -1,0 +1,117 @@
+<div class="min-h-screen bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow-md p-4 flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <div class="text-xl font-bold">YouTube Clone</div>
+        <input type="text" placeholder="Search" class="bg-gray-200 rounded-full py-2 px-4 focus:outline-none w-96">
+      </div>
+      <div class="flex items-center space-x-4">
+        <button class="text-gray-600">Upload</button>
+        <button class="text-gray-600">Notifications</button>
+        <button class="text-gray-600">Profile</button>
+      </div>
+    </header>
+  
+    <div class="flex">
+      <!-- Sidebar -->
+      <aside class="w-1/6 bg-white p-4 border-r border-gray-200">
+        <nav>
+          <ul>
+            <li class="mb-4"><a href="#" class="block py-2 px-4 rounded bg-gray-200">Home</a></li>
+            <li class="mb-4"><a href="#" class="block py-2 px-4 rounded hover:bg-gray-100">Trending</a></li>
+            <li class="mb-4"><a href="#" class="block py-2 px-4 rounded hover:bg-gray-100">Subscriptions</a></li>
+            <li class="mb-4"><a href="#" class="block py-2 px-4 rounded hover:bg-gray-100">Library</a></li>
+            <li class="mb-4"><a href="#" class="block py-2 px-4 rounded hover:bg-gray-100">History</a></li>
+            <li class="mb-4"><a href="#" class="block py-2 px-4 rounded hover:bg-gray-100">Watch Later</a></li>
+            <li class="mb-4"><a href="#" class="block py-2 px-4 rounded hover:bg-gray-100">Liked Videos</a></li>
+          </ul>
+        </nav>
+      </aside>
+  
+      <!-- Main Content -->
+      <main class="w-3/6 p-4">
+        <!-- Video Player -->
+        <div class="bg-black h-72 mb-6 rounded-md">
+          <!-- Placeholder for Video -->
+          <div class="flex justify-center items-center h-full text-white">Video Player</div>
+        </div>
+  
+        <!-- Video Title & Actions -->
+        <h1 class="text-2xl font-bold mb-2">Sample Video Title</h1>
+        <div class="flex justify-between items-center mb-6">
+          <div class="text-gray-600">1M views • 2 days ago</div>
+          <div class="flex space-x-4 text-gray-600">
+            <button class="hover:text-blue-500">Like</button>
+            <button class="hover:text-blue-500">Dislike</button>
+            <button class="hover:text-blue-500">Share</button>
+            <button class="hover:text-blue-500">Save</button>
+          </div>
+        </div>
+  
+        <!-- Channel Info -->
+        <div class="flex items-center mb-6">
+          <img src="https://via.placeholder.com/50" alt="Avatar" class="rounded-full mr-4">
+          <div>
+            <h3 class="font-bold">Channel Name</h3>
+            <p class="text-gray-600">1.2M subscribers</p>
+          </div>
+          <button class="ml-auto bg-red-500 text-white py-2 px-4 rounded">Subscribe</button>
+        </div>
+  
+        <!-- Comments Section -->
+        <div class="bg-white p-4 rounded shadow">
+          <h2 class="text-lg font-bold mb-4">Comments</h2>
+          <div class="space-y-4">
+            <!-- Comment 1 -->
+            <div class="flex items-start">
+              <img src="https://via.placeholder.com/40" alt="Avatar" class="rounded-full mr-4">
+              <div>
+                <h4 class="font-bold">User 1</h4>
+                <p class="text-gray-800">This is a sample comment. Great video!</p>
+              </div>
+            </div>
+            <!-- Comment 2 -->
+            <div class="flex items-start">
+              <img src="https://via.placeholder.com/40" alt="Avatar" class="rounded-full mr-4">
+              <div>
+                <h4 class="font-bold">User 2</h4>
+                <p class="text-gray-800">I learned a lot from this. Thanks!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+  
+      <!-- Right Sidebar -->
+      <aside class="w-2/6 bg-white p-4 border-l border-gray-200">
+        <h2 class="text-lg font-bold mb-4">Recommended Videos</h2>
+        <div class="space-y-4">
+          <!-- Recommended Video 1 -->
+          <div class="flex">
+            <div class="w-2/5 bg-gray-300 h-24 rounded-md"></div>
+            <div class="ml-4">
+              <h3 class="font-bold text-sm">Video Title 1</h3>
+              <p class="text-gray-600 text-sm">Channel Name • 500K views</p>
+            </div>
+          </div>
+          <!-- Recommended Video 2 -->
+          <div class="flex">
+            <div class="w-2/5 bg-gray-300 h-24 rounded-md"></div>
+            <div class="ml-4">
+              <h3 class="font-bold text-sm">Video Title 2</h3>
+              <p class="text-gray-600 text-sm">Channel Name • 300K views</p>
+            </div>
+          </div>
+          <!-- Recommended Video 3 -->
+          <div class="flex">
+            <div class="w-2/5 bg-gray-300 h-24 rounded-md"></div>
+            <div class="ml-4">
+              <h3 class="font-bold text-sm">Video Title 3</h3>
+              <p class="text-gray-600 text-sm">Channel Name • 200K views</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  
