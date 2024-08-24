@@ -53,10 +53,31 @@ userSchema.methods.getJwtToken = function () {
 // Compare user password
 userSchema.methods.comparePassword = async function (enteredPassword) {
   console.log(enteredPassword);
-  console.log("-------------")
+  console.log("-------------");
   console.log(this.password);
 
   return await bcrypt.compare(enteredPassword, this.password);
+};
+
+// Generate password reset token
+userSchema.methods.getResetPasswordToken = function () {
+  // Gernerate token
+  const rb = crypto.randomBytes(20);
+  const resetToken = rb.toString("hex");
+
+  console.log(rb, "rb");
+  console.log(resetToken, "rst");
+
+  // Hash and set to resetPasswordToken field
+  this.resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(resetToken)
+    .digest("hex");
+
+  // Set token expire time
+  this.resetPasswordExpire = Date.now() + 30 * 60 * 1000;
+
+  return resetToken;
 };
 
 export default mongoose.model("User", userSchema);

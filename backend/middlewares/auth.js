@@ -12,6 +12,8 @@ export const isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
     }
   
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    // *** now req.user has been set and can be accessed from the next middleware
     req.user = await User.findById(decoded.id);
   
     next();
