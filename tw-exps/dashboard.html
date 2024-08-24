@@ -1,0 +1,118 @@
+<div class="min-h-screen bg-gray-100 flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white border-r border-gray-200">
+      <div class="p-4 text-xl font-bold">Dashboard</div>
+      <nav class="mt-6">
+        <ul>
+          <li class="mb-4"><a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-200 rounded">Overview</a></li>
+          <li class="mb-4"><a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-200 rounded">Analytics</a></li>
+          <li class="mb-4"><a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-200 rounded">Sales</a></li>
+          <li class="mb-4"><a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-200 rounded">Reports</a></li>
+          <li class="mb-4"><a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-200 rounded">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+  
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow p-4 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+          <input type="text" placeholder="Search..." class="bg-gray-200 rounded-full py-2 px-4 focus:outline-none w-96">
+        </div>
+        <div class="flex items-center space-x-4">
+          <button class="text-gray-600">Notifications</button>
+          <img src="https://via.placeholder.com/40" alt="Avatar" class="rounded-full">
+          <div class="text-gray-600">John Doe</div>
+        </div>
+      </header>
+  
+      <!-- Dashboard Content -->
+      <main class="p-6 bg-gray-100 flex-1 overflow-y-auto">
+        <!-- Widgets -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <!-- Widget 1 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="text-sm text-gray-500">Total Sales</div>
+            <div class="text-3xl font-bold text-gray-800">$24,000</div>
+          </div>
+          <!-- Widget 2 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="text-sm text-gray-500">New Users</div>
+            <div class="text-3xl font-bold text-gray-800">1,200</div>
+          </div>
+          <!-- Widget 3 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="text-sm text-gray-500">Active Projects</div>
+            <div class="text-3xl font-bold text-gray-800">18</div>
+          </div>
+        </div>
+  
+        <!-- Charts Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <!-- Sales Chart -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-lg font-bold">Sales Overview</h2>
+              <button class="text-sm text-gray-600">View Report</button>
+            </div>
+            <div class="bg-gray-200 h-48 flex justify-center items-center">
+              <!-- Placeholder for Chart -->
+              <span class="text-gray-500">[Chart]</span>
+            </div>
+          </div>
+  
+          <!-- Users Chart -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-lg font-bold">User Growth</h2>
+              <button class="text-sm text-gray-600">View Report</button>
+            </div>
+            <div class="bg-gray-200 h-48 flex justify-center items-center">
+              <!-- Placeholder for Chart -->
+              <span class="text-gray-500">[Chart]</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Table Section -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-lg font-bold">Recent Transactions</h2>
+            <button class="text-sm text-gray-600">View All</button>
+          </div>
+          <table class="w-full text-left table-auto">
+            <thead>
+              <tr>
+                <th class="px-4 py-2 text-gray-600">Date</th>
+                <th class="px-4 py-2 text-gray-600">Customer</th>
+                <th class="px-4 py-2 text-gray-600">Amount</th>
+                <th class="px-4 py-2 text-gray-600">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-gray-50">
+                <td class="px-4 py-2">01/08/2024</td>
+                <td class="px-4 py-2">John Smith</td>
+                <td class="px-4 py-2">$150</td>
+                <td class="px-4 py-2"><span class="bg-green-200 text-green-800 py-1 px-3 rounded-full text-xs">Completed</span></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2">02/08/2024</td>
+                <td class="px-4 py-2">Jane Doe</td>
+                <td class="px-4 py-2">$200</td>
+                <td class="px-4 py-2"><span class="bg-yellow-200 text-yellow-800 py-1 px-3 rounded-full text-xs">Pending</span></td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="px-4 py-2">03/08/2024</td>
+                <td class="px-4 py-2">Michael Johnson</td>
+                <td class="px-4 py-2">$320</td>
+                <td class="px-4 py-2"><span class="bg-red-200 text-red-800 py-1 px-3 rounded-full text-xs">Failed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+  
