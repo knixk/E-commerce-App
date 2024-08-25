@@ -27,7 +27,7 @@ connectDatabase();
 
 app.use("/api", productRoutes);
 app.use("/api", authRoutes);
-app.use("/api/v1", orderRoutes);
+app.use("/api", orderRoutes);
 
 app.use(errorMiddleware);
 
