@@ -180,3 +180,12 @@ export const updateProfile = catchAsyncErrors(async (req, res, next) => {
     user,
   });
 });
+
+// Get all Users - ADMIN  =>  /api/v1/admin/users
+export const allUsers = catchAsyncErrors(async (req, res, next) => {
+  const users = await User.find();
+
+  res.status(200).json({
+    users,
+  });
+});

@@ -7,9 +7,10 @@ import {
   resetPassword,
   getUserProfile,
   updatePassword,
-  updateProfile
+  updateProfile,
+  allUsers,
 } from "../controllers/authControllers.js";
-import { isAuthenticatedUser } from "../middlewares/auth.js";
+import { isAuthenticatedUser, authorizeRoles } from "../middlewares/auth.js";
 const router = express.Router();
 
 router.route("/register").post(registerUser);
@@ -23,5 +24,9 @@ router.route("/me").get(isAuthenticatedUser, getUserProfile);
 router.route("/me/update").put(isAuthenticatedUser, updateProfile);
 router.route("/password/update").put(isAuthenticatedUser, updatePassword);
 
+// admin routes
+router
+  .route("/admin/users")
+  .get(isAuthenticatedUser, authorizeRoles("admin"), allUsers);
 
 export default router;
