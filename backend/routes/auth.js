@@ -9,7 +9,9 @@ import {
   updatePassword,
   updateProfile,
   allUsers,
-  getUserDetails
+  getUserDetails,
+  updateUser,
+  deleteUser
 } from "../controllers/authControllers.js";
 import { isAuthenticatedUser, authorizeRoles } from "../middlewares/auth.js";
 const router = express.Router();
@@ -30,8 +32,10 @@ router
   .route("/admin/users")
   .get(isAuthenticatedUser, authorizeRoles("admin"), allUsers);
 
-router
+  router
   .route("/admin/users/:id")
-  .get(isAuthenticatedUser, authorizeRoles("admin"), getUserDetails);
+  .get(isAuthenticatedUser, authorizeRoles("admin"), getUserDetails)
+  .put(isAuthenticatedUser, authorizeRoles("admin"), updateUser)
+  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteUser);
 
 export default router;
