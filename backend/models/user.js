@@ -60,7 +60,7 @@ userSchema.methods.comparePassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
-// Generate password reset token
+// Generate password reset token  
 userSchema.methods.getResetPasswordToken = function () {
   // Gernerate token
   const resetToken = crypto.randomBytes(20).toString("hex");
