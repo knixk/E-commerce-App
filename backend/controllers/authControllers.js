@@ -181,11 +181,26 @@ export const updateProfile = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// Get all Users - ADMIN  =>  /api/v1/admin/users
+// Get all Users - ADMIN  =>  /api/admin/users
 export const allUsers = catchAsyncErrors(async (req, res, next) => {
   const users = await User.find();
 
   res.status(200).json({
     users,
+  });
+});
+
+// Get User Details - ADMIN  =>  /api/admin/users/:id
+export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) {
+    return next(
+      new ErrorHandler(`User not found with id: ${req.params.id}`, 404)
+    );
+  }
+
+  res.status(200).json({
+    user,
   });
 });

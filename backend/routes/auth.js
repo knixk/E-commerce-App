@@ -9,6 +9,7 @@ import {
   updatePassword,
   updateProfile,
   allUsers,
+  getUserDetails
 } from "../controllers/authControllers.js";
 import { isAuthenticatedUser, authorizeRoles } from "../middlewares/auth.js";
 const router = express.Router();
@@ -28,5 +29,9 @@ router.route("/password/update").put(isAuthenticatedUser, updatePassword);
 router
   .route("/admin/users")
   .get(isAuthenticatedUser, authorizeRoles("admin"), allUsers);
+
+router
+  .route("/admin/users/:id")
+  .get(isAuthenticatedUser, authorizeRoles("admin"), getUserDetails);
 
 export default router;
