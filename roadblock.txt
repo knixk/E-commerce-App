@@ -3,3 +3,5 @@ theme name github minimal
 you were doing filters, it says query str isn't defined
 
 4:22 | send pass recovery
+
+for some reason its showing update header afer sent can't be done
