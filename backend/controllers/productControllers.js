@@ -145,7 +145,7 @@ export const deleteReview = catchAsyncErrors(async (req, res, next) => {
   );
 
   const numOfReviews = reviews.length;
-
+    
   const ratings =
     numOfReviews === 0
       ? 0
