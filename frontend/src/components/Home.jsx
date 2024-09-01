@@ -1,7 +1,13 @@
 import React from "react";
-import MetaData from "../components/layout/MetaData";
+import MetaData from "./layout/MetaData";
+import { useGetProductsQuery } from "../redux/api/productsApi";
 
 function Home() {
+
+  const { data } = useGetProductsQuery()
+
+  console.log(data)
+
   return (
     <>
       <MetaData title={"Best products online at cheapest prices!"} />
