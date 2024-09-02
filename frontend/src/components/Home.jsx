@@ -12,7 +12,7 @@ function Home() {
 
   useEffect(() => {
     if (isError) {
-      toast.success(error?.data?.message);
+      toast.error(error?.data?.message);
     }
   }, [isError]);
 
