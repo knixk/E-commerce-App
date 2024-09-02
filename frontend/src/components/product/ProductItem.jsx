@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import StarRatings from 'react-star-ratings';
 
 function ProductItem({ product }) {
   console.log(product);
@@ -17,15 +18,16 @@ function ProductItem({ product }) {
             <Link to={`/product/${product?._id}`}>{product?.name}</Link>
           </h5>
           <div className="ratings mt-auto d-flex">
-            <div className="star-ratings">
-              <i className="fa fa-star star-active"></i>
-              <i className="fa fa-star star-active"></i>
-              <i className="fa fa-star star-active"></i>
-              <i className="fa fa-star star-active"></i>
-              <i className="fa fa-star star-active"></i>
-            </div>
+            <StarRatings
+              rating={product.ratings}
+              starRatedColor="gold"
+              starDimension="20px"
+              numberOfStars={5}
+              starSpacing="1px"
+              name="rating"
+            />
             <span id="no_of_reviews" className="pt-2 ps-2">
-              {product?.numOfReviews}
+              ({product?.numOfReviews})
             </span>
           </div>
           <p className="card-text mt-2">${product?.price}</p>
