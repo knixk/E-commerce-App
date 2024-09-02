@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ProductItem({ product }) {
   console.log(product);
@@ -8,12 +9,12 @@ function ProductItem({ product }) {
         <img
           className="card-img-top mx-auto"
           src={product?.images[0].url}
-          alt=""
+          alt={product?.name}
           style={{ height: "200px", width: "170px" }}
         />
         <div className="card-body ps-3 d-flex justify-content-center flex-column">
           <h5 className="card-title">
-            <a href="">{product?.name}</a>
+            <Link to={`/product/${product?._id}`}>{product?.name}</Link>
           </h5>
           <div className="ratings mt-auto d-flex">
             <div className="star-ratings">
@@ -28,9 +29,13 @@ function ProductItem({ product }) {
             </span>
           </div>
           <p className="card-text mt-2">${product?.price}</p>
-          <a href="" id="view_btn" className="btn btn-block">
+          <Link
+            to={`/product/${product?._id}`}
+            id="view_btn"
+            className="btn btn-block"
+          >
             View Details
-          </a>
+          </Link>
         </div>
       </div>
     </div>
