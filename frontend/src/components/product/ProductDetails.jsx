@@ -1,91 +1,55 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useGetProductDetailsQuery } from "../../redux/api/productsApi";
-import { toast } from "react-hot-toast";
-import Loader from "../layout/Loader";
-import StarRatings from "react-star-ratings";
+import React from "react";
 
-const ProductDetails = () => {
-  const params = useParams();
-
-  const { data, isLoading, error, isError } = useGetProductDetailsQuery(
-    params?.id
-  );
-  const product = data?.product;
-
-  const [activeImg, setActiveImg] = useState("");
-
-  useEffect(() => {
-    setActiveImg(
-      product?.images[0]
-        ? product?.images[0]?.url
-        : "/images/default_product.png"
-    );
-  }, [product]);
-
-  useEffect(() => {
-    if (isError) {
-      toast.error(error?.data?.message);
-    }
-  }, [isError]);
-
-  if (isLoading) return <Loader />;
-
+function ProductDetails() {
   return (
     <div className="row d-flex justify-content-around">
       <div className="col-12 col-lg-5 img-fluid" id="product_image">
         <div className="p-3">
           <img
             className="d-block w-100"
-            src={activeImg}
-            alt={product?.name}
+            src="./images//default_product.png"
+            alt=""
             width="340"
             height="390"
           />
         </div>
         <div className="row justify-content-start mt-5">
-          {product?.images?.map((img) => (
-            <div className="col-2 ms-4 mt-2">
-              <a role="button">
-                <img
-                  className={`d-block border rounded p-3 cursor-pointer ${
-                    img.url === activeImg ? "border-warning" : ""
-                  } `}
-                  height="100"
-                  width="100"
-                  src={img?.url}
-                  alt={img?.url}
-                  onClick={(e) => setActiveImg(img.url)}
-                />
-              </a>
-            </div>
-          ))}
+          <div className="col-2 ms-4 mt-2">
+            <a role="button">
+              <img
+                className="d-block border rounded p-3 cursor-pointer"
+                height="100"
+                width="100"
+                src="./images//default_product.png"
+                alt=""
+              />
+            </a>
+          </div>
         </div>
       </div>
 
       <div className="col-12 col-lg-5 mt-5">
-        <h3>{product?.name}</h3>
-        <p id="product_id">Product # {product?._id}</p>
+        <h3>Lorem Ipsum</h3>
+        <p id="product_id">Product # w43453456456756786</p>
 
         <hr />
 
         <div className="d-flex">
-          <StarRatings
-            rating={product?.ratings}
-            starRatedColor="#ffb829"
-            numberOfStars={5}
-            name="rating"
-            starDimension="24px"
-            starSpacing="1px"
-          />
+          <div className="star-ratings">
+            <i className="fa fa-star star-active"></i>
+            <i className="fa fa-star star-active"></i>
+            <i className="fa fa-star star-active"></i>
+            <i className="fa fa-star star-active"></i>
+            <i className="fa fa-star star-active"></i>
+          </div>
           <span id="no-of-reviews" className="pt-1 ps-2">
             {" "}
-            ({product?.numOfReviews} Reviews){" "}
+            (1 Reviews){" "}
           </span>
         </div>
         <hr />
 
-        <p id="product_price">${product?.price}</p>
+        <p id="product_price">$23</p>
         <div className="stockCounter d-inline">
           <span className="btn btn-danger minus">-</span>
           <input
@@ -109,21 +73,28 @@ const ProductDetails = () => {
 
         <p>
           Status:{" "}
-          <span
-            id="stock_status"
-            className={product?.stock > 0 ? "greenColor" : "redColor"}
-          >
-            {product?.stock > 0 ? "In Stock" : "Out of Stock"}
+          <span id="stock_status" className="greenColor">
+            In Stock
           </span>
         </p>
 
         <hr />
 
         <h4 className="mt-2">Description:</h4>
-        <p>{product?.description}</p>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+        </p>
         <hr />
         <p id="product_seller mb-3">
-          Sold by: <strong>{product?.seller}</strong>
+          Sold by: <strong>Tech</strong>
         </p>
 
         <div className="alert alert-danger my-5" type="alert">
@@ -132,6 +103,6 @@ const ProductDetails = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ProductDetails;
