@@ -7,8 +7,9 @@ function ProductItem({ product }) {
       <div className="card p-3 rounded">
         <img
           className="card-img-top mx-auto"
-          src="./images/default_product.png"
+          src={product?.images[0].url}
           alt=""
+          style={{ height: "200px", width: "170px" }}
         />
         <div className="card-body ps-3 d-flex justify-content-center flex-column">
           <h5 className="card-title">
@@ -23,11 +24,10 @@ function ProductItem({ product }) {
               <i className="fa fa-star star-active"></i>
             </div>
             <span id="no_of_reviews" className="pt-2 ps-2">
-              {" "}
-              (0){" "}
+              {product?.numOfReviews}
             </span>
           </div>
-          <p className="card-text mt-2">$100</p>
+          <p className="card-text mt-2">${product?.price}</p>
           <a href="" id="view_btn" className="btn btn-block">
             View Details
           </a>
