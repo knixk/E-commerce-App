@@ -4,6 +4,7 @@ import ProductItem from "./product/ProductItem";
 import { useEffect } from "react";
 import Loader from "./layout/Loader";
 import toast from "react-hot-toast";
+import CustomPagination from "./layout/CustomPagination";
 
 function Home() {
   const { data, isLoading, error, isError } = useGetProductsQuery();
@@ -35,6 +36,11 @@ function Home() {
               ))}
             </div>
           </section>
+
+          <CustomPagination
+            resPerPage={data?.resPerPage}
+            filteredProductsCount={data?.filteredProductsCount}
+          />
         </div>
       </div>
     </>
