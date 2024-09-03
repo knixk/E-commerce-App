@@ -29,7 +29,7 @@ const CustomPagination = ({ resPerPage, filteredProductsCount }) => {
 
   return (
     <div className="d-flex justify-content-center my-5">
-      {filteredProductsCount > resPerPage && (
+      {filteredProductsCount > resPerPage && (    
         <Pagination
           activePage={currentPage}
           itemsCountPerPage={resPerPage}

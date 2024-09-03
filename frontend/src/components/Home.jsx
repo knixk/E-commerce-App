@@ -8,14 +8,12 @@ import CustomPagination from "./layout/CustomPagination";
 import { useSearchParams } from "react-router-dom";
 
 function Home() {
-  const { data, isLoading, error, isError } = useGetProductsQuery();
 
   let [searchParams] = useSearchParams();
   const page = searchParams.get("page") || 1;
+  const params = { page };
 
-  // if (data) console.log(data);
-
-  // console.log(data?.resPerPage);
+  const { data, isLoading, error, isError } = useGetProductsQuery(params);
 
   useEffect(() => {
     if (isError) {
