@@ -5,11 +5,17 @@ import { useEffect } from "react";
 import Loader from "./layout/Loader";
 import toast from "react-hot-toast";
 import CustomPagination from "./layout/CustomPagination";
+import { useSearchParams } from "react-router-dom";
 
 function Home() {
   const { data, isLoading, error, isError } = useGetProductsQuery();
 
-  if (data) console.log(data);
+  let [searchParams] = useSearchParams();
+  const page = searchParams.get("page") || 1;
+
+  // if (data) console.log(data);
+
+  // console.log(data?.resPerPage);
 
   useEffect(() => {
     if (isError) {
