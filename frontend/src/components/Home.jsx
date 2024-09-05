@@ -8,7 +8,6 @@ import CustomPagination from "./layout/CustomPagination";
 import { useSearchParams } from "react-router-dom";
 
 function Home() {
-
   let [searchParams] = useSearchParams();
   const page = searchParams.get("page") || 1;
   const keyword = searchParams.get("keyword") || "";
@@ -22,6 +21,8 @@ function Home() {
     }
   }, [isError]);
 
+  const columnSize = keyword ? 4 : 3;
+
   if (isLoading) return <Loader></Loader>;
 
   return (
@@ -29,15 +30,20 @@ function Home() {
       <MetaData title={"Best products online at cheapest prices!"} />
 
       <div className="row">
-        <div className="col-12 col-sm-6 col-md-12">
+        {keyword && <div className="col-6 col-md-3 mt-5">
+          <p>FILTERS</p>
+        </div>}
+        <div className={keyword ? "col-6 col-md-9" : "col-6 col-md-12"}>
           <h1 id="products_heading" className="text-secondary">
-            Latest Products
+            {keyword
+              ? `${data?.products?.length} products found with keyword: ${keyword}`
+              : "Latest Products"}
           </h1>
 
           <section id="products" className="mt-5">
             <div className="row">
               {data?.products?.map((product) => (
-                <ProductItem product={product} />
+                <ProductItem product={product} columnSize={columnSize} />
               ))}
             </div>
           </section>

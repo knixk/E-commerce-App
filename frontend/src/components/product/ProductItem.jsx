@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import StarRatings from 'react-star-ratings';
+import StarRatings from "react-star-ratings";
 
-function ProductItem({ product }) {
+function ProductItem({ product, columnSize }) {
   console.log(product);
   return (
-    <div className="col-sm-12 col-md-6 col-lg-3 my-3">
+    <div className={`col-sm-12 col-md-6 col-lg-${columnSize} my-3`}>
       <div className="card p-3 rounded">
         <img
           className="card-img-top mx-auto"
