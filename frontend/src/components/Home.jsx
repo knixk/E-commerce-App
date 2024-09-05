@@ -11,7 +11,8 @@ function Home() {
 
   let [searchParams] = useSearchParams();
   const page = searchParams.get("page") || 1;
-  const params = { page };
+  const keyword = searchParams.get("keyword") || "";
+  const params = { page, keyword };
 
   const { data, isLoading, error, isError } = useGetProductsQuery(params);
 
