@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { getPriceQueryParams } from "../../helpers/helpers";
+import { PRODUCT_CATEGORIES } from "../../constants/constants";
 
 const Filters = () => {
   const [min, setMin] = useState(0);
@@ -57,32 +58,21 @@ const Filters = () => {
       <hr />
       <h5 className="mb-3">Category</h5>
 
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          type="checkbox"
-          name="category"
-          id="check4"
-          value="Category 1"
-        />
-        <label className="form-check-label" for="check4">
-          {" "}
-          Category 1{" "}
-        </label>
-      </div>
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          type="checkbox"
-          name="category"
-          id="check5"
-          value="Category 2"
-        />
-        <label className="form-check-label" for="check5">
-          {" "}
-          Category 2{" "}
-        </label>
-      </div>
+      {PRODUCT_CATEGORIES?.map((category) => {
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="checkbox"
+            name="category"
+            id="check4"
+            value="Category 1"
+          />
+          <label className="form-check-label" for="check4">
+            {" "}
+            Category 1{" "}
+          </label>
+        </div>;
+      })}
 
       <hr />
       <h5 className="mb-3">Ratings</h5>
