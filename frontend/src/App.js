@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 import ProductDetails from "./components/product/ProductDetails";
 
 function App() {
-  return (
+  return (  
     <>
       <Router>
         <div className="App">
