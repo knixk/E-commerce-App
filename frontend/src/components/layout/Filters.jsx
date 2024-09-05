@@ -25,12 +25,7 @@ const Filters = () => {
       <h3>Filters</h3>
       <hr />
       <h5 className="filter-heading mb-3">Price</h5>
-      <form
-        id="filter_form"
-        className="px-2"
-        action="your_action_url_here"
-        method="get"
-      >
+      <form id="filter_form" className="px-2" onSubmit={handleButtonClick}>
         <div className="row">
           <div className="col">
             <input
@@ -38,7 +33,8 @@ const Filters = () => {
               className="form-control"
               placeholder="Min ($)"
               name="min"
-              value=""
+              value={min}
+              onChange={(e) => setMin(e.target.value)}
             />
           </div>
           <div className="col">
@@ -47,7 +43,8 @@ const Filters = () => {
               className="form-control"
               placeholder="Max ($)"
               name="max"
-              value=""
+              value={max}
+              onChange={(e) => setMax(e.target.value)}
             />
           </div>
           <div className="col">
