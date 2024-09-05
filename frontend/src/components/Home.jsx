@@ -6,6 +6,7 @@ import Loader from "./layout/Loader";
 import toast from "react-hot-toast";
 import CustomPagination from "./layout/CustomPagination";
 import { useSearchParams } from "react-router-dom";
+import Filters from "./layout/Filters";
 
 function Home() {
   let [searchParams] = useSearchParams();
@@ -30,9 +31,11 @@ function Home() {
       <MetaData title={"Best products online at cheapest prices!"} />
 
       <div className="row">
-        {keyword && <div className="col-6 col-md-3 mt-5">
-          <p>FILTERS</p>
-        </div>}
+        {keyword && (
+          <div className="col-6 col-md-3 mt-5">
+            <Filters />
+          </div>
+        )}
         <div className={keyword ? "col-6 col-md-9" : "col-6 col-md-12"}>
           <h1 id="products_heading" className="text-secondary">
             {keyword
