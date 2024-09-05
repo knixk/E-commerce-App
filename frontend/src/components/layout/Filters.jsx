@@ -1,6 +1,25 @@
-import React from "react";
+import { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { getPriceQueryParams } from "../../helpers/helpers";
 
 const Filters = () => {
+  const [min, setMin] = useState(0);
+  const [max, setMax] = useState(0);
+
+  const navigate = useNavigate();
+  let [searchParams] = useSearchParams();
+
+  // Handle price filter
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+
+    searchParams = getPriceQueryParams(searchParams, "min", min);
+    searchParams = getPriceQueryParams(searchParams, "max", max);
+
+    const path = window.location.pathname + "?" + searchParams.toString();
+    navigate(path);
+  };
+
   return (
     <div className="border p-3 filter">
       <h3>Filters</h3>
