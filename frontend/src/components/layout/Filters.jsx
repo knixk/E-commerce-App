@@ -38,7 +38,7 @@ const Filters = () => {
         searchParams.append(checkbox.name, checkbox.value);
       }
 
-      const path = window.location.pathname + "?" + searchParams.toStcring();
+      const path = window.location.pathname + "?" + searchParams.toString();
       navigate(path);
     }
   };
@@ -100,6 +100,7 @@ const Filters = () => {
               name="category"
               id="check4"
               value={category}
+              onClick={(e) => handleClick(e.target)}
             />
             <label className="form-check-label" for="check4">
               {" "}
