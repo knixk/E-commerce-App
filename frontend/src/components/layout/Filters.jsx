@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { getPriceQueryParams } from "../../helpers/helpers";
 import { PRODUCT_CATEGORIES } from "../../constants/constants";
@@ -10,13 +10,14 @@ const Filters = () => {
   const navigate = useNavigate();
   let [searchParams] = useSearchParams();
 
+  useEffect(() => {}, []);
+
   // Handle Category & Ratings filter
   const handleClick = (checkbox) => {
     const checkboxes = document.getElementsByName(checkbox.name);
-
-    console.log("-----------------------");
-    console.log(checkboxes);
-    console.log("-----------------------");
+    // console.log("-----------------------");
+    // console.log(checkboxes);
+    // console.log("-----------------------");
 
     checkboxes.forEach((item) => {
       if (item !== checkbox) item.checked = false;
@@ -52,6 +53,12 @@ const Filters = () => {
 
     const path = window.location.pathname + "?" + searchParams.toString();
     navigate(path);
+  };
+
+  const defaultCheckHandler = (checkboxType, checkboxValue) => {
+    const value = searchParams.get(checkboxType);
+    if (checkboxValue === value) return true;
+    return false;
   };
 
   return (
@@ -100,6 +107,7 @@ const Filters = () => {
               name="category"
               id="check4"
               value={category}
+              defaultChecked={defaultCheckHandler("category", category)}
               onClick={(e) => handleClick(e.target)}
             />
             <label className="form-check-label" for="check4">

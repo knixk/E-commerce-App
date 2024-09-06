@@ -20,14 +20,14 @@ function Home() {
   min != null && (params.min = min);
   max != null && (params.max = max);
 
-  console.log(params);
+  // console.log(params);
 
   const { data, isLoading, error, isError } = useGetProductsQuery(params);
 
   useEffect(() => {
     if (isError) {
       toast.error(error?.data?.message);
-    }
+    } 
   }, [isError]);
 
   const columnSize = keyword ? 4 : 3;
