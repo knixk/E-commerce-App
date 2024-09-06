@@ -10,7 +10,10 @@ const Filters = () => {
   const navigate = useNavigate();
   let [searchParams] = useSearchParams();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    searchParams.has("min") && setMin(searchParams.get("min"));
+    searchParams.has("max") && setMax(searchParams.get("max"));
+  }, []);
 
   // Handle Category & Ratings filter
   const handleClick = (checkbox) => {
