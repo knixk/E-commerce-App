@@ -10,6 +10,39 @@ const Filters = () => {
   const navigate = useNavigate();
   let [searchParams] = useSearchParams();
 
+  // Handle Category & Ratings filter
+  const handleClick = (checkbox) => {
+    const checkboxes = document.getElementsByName(checkbox.name);
+
+    console.log("-----------------------");
+    console.log(checkboxes);
+    console.log("-----------------------");
+
+    checkboxes.forEach((item) => {
+      if (item !== checkbox) item.checked = false;
+    });
+
+    if (checkbox.checked === false) {
+      // Delete filter from query
+      if (searchParams.has(checkbox.name)) {
+        searchParams.delete(checkbox.name);
+        const path = window.location.pathname + "?" + searchParams.toString();
+        navigate(path);
+      }
+    } else {
+      // Set new filter value if already there
+      if (searchParams.has(checkbox.name)) {
+        searchParams.set(checkbox.name, checkbox.value);
+      } else {
+        // Append new filter
+        searchParams.append(checkbox.name, checkbox.value);
+      }
+
+      const path = window.location.pathname + "?" + searchParams.toStcring();
+      navigate(path);
+    }
+  };
+
   // Handle price filter
   const handleButtonClick = (e) => {
     e.preventDefault();
@@ -59,19 +92,21 @@ const Filters = () => {
       <h5 className="mb-3">Category</h5>
 
       {PRODUCT_CATEGORIES?.map((category) => {
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            name="category"
-            id="check4"
-            value="Category 1"
-          />
-          <label className="form-check-label" for="check4">
-            {" "}
-            Category 1{" "}
-          </label>
-        </div>;
+        return (
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              name="category"
+              id="check4"
+              value={category}
+            />
+            <label className="form-check-label" for="check4">
+              {" "}
+              {category}
+            </label>
+          </div>
+        );
       })}
 
       <hr />
