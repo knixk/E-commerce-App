@@ -14,7 +14,7 @@ const Filters = () => {
     searchParams.has("min") && setMin(searchParams.get("min"));
     searchParams.has("max") && setMax(searchParams.get("max"));
   }, []);
-
+  
   // Handle Category & Ratings filter
   const handleClick = (checkbox) => {
     const checkboxes = document.getElementsByName(checkbox.name);
