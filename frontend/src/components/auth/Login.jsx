@@ -8,10 +8,6 @@ function Login() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  console.log("------------------->");
-  console.log(data);
-  console.log("------------------->");
-
   useEffect(() => {
     if (error) {
       toast.error(error?.data?.message);
@@ -27,8 +23,6 @@ function Login() {
     };
 
     login(loginData);
-
-    console.log(email, password);
   };
 
   return (
