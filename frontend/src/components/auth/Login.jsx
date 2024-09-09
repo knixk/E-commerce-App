@@ -1,17 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLoginMutation } from "../../redux/api/authApi";
+import toast from "react-hot-toast";
 
 function Login() {
-
-    const [login, { isLoading, error, data }] = useLoginMutation();
+  const [login, { isLoading, error, data }] = useLoginMutation();
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    const loginData = {
+      email,
+      password,
+    };
+
+    login(loginData);
+
     console.log(email, password);
   };
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error?.data?.message);
+    }
+  }, []);
 
   return (
     <div className="row wrapper">
@@ -55,8 +69,13 @@ function Login() {
             Forgot Password?
           </Link>
 
-          <button id="login_button" type="submit" className="btn w-100 py-2">
-            LOGIN
+          <button
+            id="login_button"
+            type="submit"
+            className="btn w-100 py-2"
+            disabled={isLoading}
+          >
+            {isLoading ? "Authenticating..." : "LOGIN"}
           </button>
 
           <div className="my-3">

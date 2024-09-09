@@ -4,9 +4,10 @@ import { getPriceQueryParams } from "../../helpers/helpers";
 import { PRODUCT_CATEGORIES } from "../../constants/constants";
 import StarRatings from "react-star-ratings";
 
+
 const Filters = () => {
   const [min, setMin] = useState(0);
-  const [max, setMax] = useState(0);
+  const [max, setMax] = useState(0);  
 
   const navigate = useNavigate();
   let [searchParams] = useSearchParams();
